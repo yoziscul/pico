@@ -1,0 +1,30 @@
+{
+  "name": "pico",
+  "version": "0.0.0",
+  "description": "This is Pico, a bot to have fun with, nothing else!",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thezeptar/pico.git"
+  },
+  "keywords": [
+    "games",
+    "pico",
+    "fun",
+    "minigames"
+  ],
+  "author": "thezeptar <thezeptar@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thezeptar/pico/issues"
+  },
+  "homepage": "https://github.com/thezeptar/pico#readme",
+  "dependencies": {
+    "discord.js": "^14.12.1",
+    "dotenv": "^16.4.4",
+    "pagination.djs": "^4.0.13"
+  }
+}
