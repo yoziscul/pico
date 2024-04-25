@@ -4,6 +4,7 @@
   "description": "This is Pico, a bot to have fun with, nothing else!",
   "main": "src/index.js",
   "scripts": {
+    "start": "nodemon src",
     "test": "node src"
   },
   "repository": {
@@ -25,6 +26,9 @@
   "dependencies": {
     "discord.js": "^14.12.1",
     "dotenv": "^16.4.4",
-    "pagination.djs": "^4.0.13"
+    "pagination.djs": "^4.0.14"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }

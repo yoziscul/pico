@@ -1,5 +1,6 @@
 const { readdirSync }  = require('node:fs');
 const { Client, Collection } = require('discord.js');
+const { embedErr } = require('./Embeds');
 
 class Base extends Client {
     register = false;
@@ -46,7 +47,16 @@ class Base extends Client {
             const command = this.commands.get(interaction.commandName);
 
             if (command) {
-                await command.run(this, interaction);
+                try {
+                    await command.run(this, interaction);
+                } catch(error) {
+                    console.error(error);
+
+                    interaction.followUp({
+                        embeds: [embedErr(`Error while executing command, sorry for the inconvenience!`)],
+                        ephemeral: true,
+                    });
+                }
             }
         }
     }

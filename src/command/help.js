@@ -18,10 +18,10 @@ const command = {
         await interaction.deferReply();
 
         const pagination = new Pagination(interaction, {
-            firstEmoji: '<:fastleft:1208637662202822727>',
-            prevEmoji: '<:left:1208637660286033942>',
-            nextEmoji: '<:right:1208637658364907591>',
-            lastEmoji: '<:fastright:1208637664295653426>',
+            firstEmoji: '<:fastleft:1221241132197871727>',
+            prevEmoji: '<:left:1221241130033741905>',
+            nextEmoji: '<:right:1221241128532185238>',
+            lastEmoji: '<:fastright:1221241125738778755>',
             limit: 5,
             ephemeral: false,
         });
@@ -39,7 +39,7 @@ const command = {
             commands[i].forEach((command) => {
                 newEmbed.addFields({
                     name: `</${command.name}:${command.id}>`,
-                    value: `<:joiner:1208637666355052594> ${command.description}`,
+                    value: `<:arrow:1221241123599679618> ${command.description}`,
                 });
             });
 
