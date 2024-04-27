@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src",
-    "test": "node src"
+    "test": "node src",
+    "lint": "eslint .",
+    "fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
     "pagination.djs": "^4.0.14"
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
     "nodemon": "^3.1.0"
   }
 }

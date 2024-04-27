@@ -1,4 +1,4 @@
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require("discord.js");
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
 const { embedErr } = require('../util/Embeds');
 
 const choices = [
@@ -32,7 +32,7 @@ const command = {
 
         const embed = new EmbedBuilder()
             .setTitle('Rock, Paper, Scissors!')
-            .setDescription(`${user}, you have been challenged by ${interaction.user}.`)
+            .setDescription`${user}, you have been challenged by ${interaction.user}.`
             .setColor('DarkGreen');
 
         const row = new ActionRowBuilder()
@@ -42,7 +42,7 @@ const command = {
                         .setCustomId(choice.name)
                         .setLabel(choice.name)
                         .setStyle(2)
-                        .setEmoji(choice.emoji)
+                        .setEmoji(choice.emoji);
                 }),
             );
 
@@ -56,13 +56,13 @@ const command = {
         
         userCollector.on('collect', async (i) => {
             if (i.user.id !== user.id) {
-                return await i.reply({ content: 'bruh', ephemeral: true })
+                return await i.reply({ embeds: embedErr`It's not your turn right now.`, ephemeral: true });
             }
 
             await i.deferUpdate();
             const userChoice = choices.find((choice) => choice.name === i.customId);
 
-            embed.setDescription(`It's currently ${interaction.user}'s turn.`);
+            embed.setDescription`It's currently ${interaction.user}'s turn.`;
 
             await i.editReply({
                 content: `\`${interaction.user.username}\`, it's your turn to choose.`,
@@ -73,7 +73,7 @@ const command = {
 
             authorCollector.on('collect', async (j) => {
                 if (j.user.id !== interaction.user.id) {
-                    return await j.reply({ content: 'bruh', ephemeral: true })
+                    return await j.reply({ embeds: embedErr`It's not your turn right now.`, ephemeral: true });
                 }
 
                 await j.deferUpdate();
@@ -88,7 +88,7 @@ const command = {
                 const userPicked = `${user} picked ${userChoice.name} ${userChoice.emoji}`;
                 const authorPicked = `${interaction.user} picked ${authorChoice.name} ${authorChoice.emoji}`;
 
-                embed.setDescription(`${userPicked}\n${authorPicked}`);
+                embed.setDescription`${userPicked}\n${authorPicked}`;
                 await j.editReply({ content: result, embeds: [embed] });
             });
 
@@ -96,7 +96,7 @@ const command = {
                 if (!authorCollector.collected.size) {
                     reply.edit({
                         content: 'Game ended.',
-                        embeds: [embedErr(`${user} didn't respond in time.`)]
+                        embeds: [embedErr`${user} didn't respond in time.`]
                     });
                 }
             });
@@ -106,11 +106,11 @@ const command = {
             if (!userCollector.collected.size) {
                 reply.edit({
                     content: 'Game ended.',
-                    embeds: [embedErr(`${user} didn't respond in time.`)]
+                    embeds: [embedErr`${user} didn't respond in time.`]
                 });
             }
         });
     }
-}
+};
 
 module.exports = command;

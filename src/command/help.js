@@ -49,6 +49,6 @@ const command = {
         pagination.setEmbeds(embeds);
         pagination.render();
     }
-}
+};
 
 module.exports = command;

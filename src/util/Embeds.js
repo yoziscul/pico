@@ -9,7 +9,7 @@
     .setTimestamp();
 */
 
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder } = require('discord.js');
 
 const embeds = {
     embedErr(description) {

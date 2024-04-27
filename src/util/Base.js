@@ -3,24 +3,24 @@ const { Client, Collection } = require('discord.js');
 const { embedErr } = require('./Embeds');
 
 class Base extends Client {
-    register = false;
-    commands = new Collection();
-
     constructor() {
         super({
             intents: [1, 2],
             partials: [1, 0],
         });
 
+        this.register = false;
+        this.commands = new Collection();
+
         this.on('ready', this.registerClientCommands);
-        this.on('interactionCreate', this.listenInteraction)
+        this.on('interactionCreate', this.listenInteraction);
 
         void this.login(process.env.DISCORD_TOKEN);
     }
 
     async registerClientCommands() {
         for (const file of readdirSync('src/command')) {
-            const command = require(`../command/${file}`);
+            const command = require`../command/${file}`;
             this.commands.set(command.name, { ...command });
         }
 
@@ -53,7 +53,7 @@ class Base extends Client {
                     console.error(error);
 
                     interaction.followUp({
-                        embeds: [embedErr(`Error while executing command, sorry for the inconvenience!`)],
+                        embeds: [embedErr`Error while executing command, sorry for the inconvenience!`],
                         ephemeral: true,
                     });
                 }
