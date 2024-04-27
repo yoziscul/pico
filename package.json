@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src",
-    "test": "node src",
+    "preview": "node src",
+    "test": "npm run lint && exit 0",
     "lint": "eslint .",
     "fix": "eslint . --fix"
   },

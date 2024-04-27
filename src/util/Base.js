@@ -20,7 +20,7 @@ class Base extends Client {
 
     async registerClientCommands() {
         for (const file of readdirSync('src/command')) {
-            const command = require`../command/${file}`;
+            const command = require(`../command/${file}`);
             this.commands.set(command.name, { ...command });
         }
 
