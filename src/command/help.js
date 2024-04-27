@@ -14,7 +14,7 @@ function arraySplit(arr, size) {
 const command = {
     name: 'help',
     description: 'Document all commands in the bot.',
-    run: async (client, interaction) => {
+    run: async (interaction, client) => {
         await interaction.deferReply();
 
         const pagination = new Pagination(interaction, {

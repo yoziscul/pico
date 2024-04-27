@@ -48,7 +48,7 @@ class Base extends Client {
 
             if (command) {
                 try {
-                    await command.run(this, interaction);
+                    await command.run(interaction, this);
                 } catch(error) {
                     console.error(error);
 
