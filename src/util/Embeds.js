@@ -17,6 +17,17 @@ const embeds = {
             .setDescription(description)
             .setColor('Red');
     },
+    embedDefault(title, description, user) {
+        return new EmbedBuilder()
+            .setTitle(title)
+            .setDescription(description)
+            .setColor('Aqua')
+            .setFooter({
+                text: user.username,
+                iconURL: user.displayAvatarURL(),
+            })
+            .setTimestamp();
+    }
 };
 
 module.exports = embeds;

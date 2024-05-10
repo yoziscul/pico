@@ -1,14 +1,19 @@
 const { readdirSync }  = require('node:fs');
-const { Client, Collection } = require('discord.js');
+const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { embedErr } = require('./Embeds');
 
 class Base extends Client {
     constructor() {
         super({
-            intents: [1, 2],
-            partials: [1, 0],
+            intents: [
+                GatewayIntentBits.Guilds,
+                GatewayIntentBits.GuildMessages,
+                GatewayIntentBits.GuildMembers,
+                GatewayIntentBits.MessageContent,
+            ],
         });
 
+        // SET TO TRUE IF Object.defineProperty called on non-object
         this.register = false;
         this.commands = new Collection();
 
@@ -53,7 +58,7 @@ class Base extends Client {
                     console.error(error);
 
                     interaction.followUp({
-                        embeds: [embedErr`Error while executing command, sorry for the inconvenience!`],
+                        embeds: [embedErr(`Error while executing command, sorry for the inconvenience!\n\`\`\`js\n${error}\`\`\``)],
                         ephemeral: true,
                     });
                 }
