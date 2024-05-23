@@ -17,9 +17,8 @@ const embeds = {
             .setDescription(description)
             .setColor('Red');
     },
-    embedDefault(title, description, user) {
+    embedDefault(description, user) {
         return new EmbedBuilder()
-            .setTitle(title)
             .setDescription(description)
             .setColor('Aqua')
             .setFooter({
