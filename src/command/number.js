@@ -1,4 +1,3 @@
-const { ModalBuilder, ActionRowBuilder, TextInputBuilder, ButtonBuilder } = require('discord.js');
 const { embedErr, embedDefault } = require('../util/Embeds');
 
 const command = {
